@@ -56,18 +56,24 @@ int _printf(const char *format, ...)
 			}
 			else if (format[jul] == 'd' || format[jul] == 'i')
 			{
-				int num = va_arg(list_ofargs, int);
+				int num1 = va_arg(list_ofargs, int);
 				int num_digits = 0;
-				int temp = num;
+				int tmp = num1;
 				int i;
 				char *buffer;
+				unsigned int num, temp; 
 
-				if (num < 0)
+				if (num1 < 0)
 				{
 					write(1, "-", 1);
 					_chara_print++;
-					num = -num;
-					temp = -temp;
+					num = -num1;
+					temp = -tmp;
+				}
+				else
+				{
+					num = num1;
+					temp = tmp;
 				}
 
 
